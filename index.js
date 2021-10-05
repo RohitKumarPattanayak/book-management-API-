@@ -1,5 +1,5 @@
 // MAIN BACKEND FILE
-
+require('dotenv').config()
 const db = require("./database/index1.js");
 
 const express = require("express");
@@ -10,7 +10,8 @@ const mongoose = require('mongoose');
 const BookModel = require("./database/books");
 const authorsModel = require("./database/authors");
 const publicationModel = require("./database/publications");
-var mongoDB = "mongodb+srv://rohit_1:KESuc9tHmaRzDfNV@cluster0.zjgeo.mongodb.net/book-company?retryWrites=true&w=majority";
+// var mongoDB = "mongodb+srv://rohit_1:KESuc9tHmaRzDfNV@cluster0.zjgeo.mongodb.net/book-company?retryWrites=true&w=majority";
+var mongoDB = process.env.mongoDB
 mongoose.connect(mongoDB, {useNewUrlparser: true, useUnifiedTopology: true}).then(()=>console.log("CONNECTION ESTABLISHED"))
 
 
